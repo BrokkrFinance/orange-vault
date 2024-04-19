@@ -30,9 +30,10 @@ async function main() {
     } catch (e) {
       if (
         e instanceof Error &&
-        e.message.includes("Contract source code already verified")
+        (e.message.includes("Contract source code already verified") ||
+          e.message.includes("Already Verified"))
       ) {
-        console.log("already verified");
+        console.log("Already verified\n\n");
       } else {
         throw e;
       }
